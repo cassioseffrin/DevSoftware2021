@@ -1,6 +1,6 @@
 package br.edu.cassio;
 
-public class Pessoa {
+public class Pessoa  extends Persistencia{
 	private String nome;
 	private String cpf;
 	private String rg;

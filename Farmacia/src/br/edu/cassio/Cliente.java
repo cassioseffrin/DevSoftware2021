@@ -39,7 +39,7 @@ public class Cliente extends Pessoa {
 			FileOutputStream fos = new FileOutputStream(f, true);
  
 			fos.write(this.toString().getBytes());
-			System.out.println("O objecto cliente foi salvo!");
+			System.out.println("O Objeto cliente foi salvo!");
 			fos.close();
 		} catch (FileNotFoundException fnf) {
 			System.out.println("Caminho nao encontrado");
