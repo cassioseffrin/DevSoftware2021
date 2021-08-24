@@ -5,13 +5,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	public static final String ARQUIVO = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Funcionario.csv";
+	public static final String ARQUIVO_SERIALIZACAO = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Funcionario.obj";
 
 	private String pis;
 	private String pasep;
@@ -26,7 +30,7 @@ public class Funcionario extends Pessoa {
 		this.pis=(a[4]);
 		this.pasep= (a[5]);
 		this.carteiraTrabalho=(a[6]);	 
-		this.salario=  Double.parseDouble(  a[7]  );
+		this.salario=  Double.parseDouble(a[7]);
 	}
 
 	public String getPis() {
