@@ -5,13 +5,12 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String array[]) {
-
 		montaTelaPrincipal();
 	}
 
 	private static void montaTelaPrincipal() {
-
-		System.out.println(" SISTEMA FARMACEUTICO FARMUNC\n\n\n");
+		clearScreen();
+		System.out.println("\f SISTEMA FARMACEUTICO FARMUNC\n\n\n");
 		System.out.println("1. CADASTROS");
 		System.out.println("2. ESTOQUE");
 		System.out.println("3. RELATORIOS");
@@ -20,7 +19,6 @@ public class Principal {
 		System.out.printf("Digite uma das opções acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
-
 		irTela(op);
 	}
 
@@ -31,7 +29,8 @@ public class Principal {
 	}
 
 	private static void irMenuCadastro() {
-		System.out.println(" CADASTROS\n\n\n");
+		clearScreen();
+		System.out.println("\f CADASTROS\n\n\n");
 		System.out.println("1. CLIENTE");
 		System.out.println("2. FUNCIONARIO");
 		System.out.println("3. FARMACEUTICO ");
@@ -42,6 +41,19 @@ public class Principal {
 		Integer op = s.nextInt();
 		if (op == 5) {
 			montaTelaPrincipal();
+		}
+	}
+
+	public final static void clearScreen() {
+		try {
+			final String os = System.getProperty("os.name");
+			if (os.contains("Windows")) {
+				Runtime.getRuntime().exec("cls");
+			} else {
+				Runtime.getRuntime().exec("clear");
+			}
+		} catch (final Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
