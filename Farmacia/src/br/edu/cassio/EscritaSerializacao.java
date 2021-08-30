@@ -22,6 +22,14 @@ public class EscritaSerializacao {
 		FileOutputStream fos = new FileOutputStream(arquivo);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(f);
+		
+		
+		
 
 	}
+	
+	
+//	public <E> boolean serializarEntidade(  E entidade, String arquivo);
+	
+
 }

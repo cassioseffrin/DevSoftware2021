@@ -17,4 +17,6 @@ public class LeituraObjectSerializado {
 		System.out.println(funcDeserializado);
 
 	}
+	
+//	public <E> E lerSerial(String arquivo);
 }
