@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 
 public class LeituraObjectSerializado {
 	public static void main(String a[]) throws IOException, ClassNotFoundException {
-		File arquivo = new File(Funcionario.ARQUIVO_SERIALIZACAO);
+		File arquivo = new File(Funcionario.ARQUIVO_SERIAL);
 		FileInputStream fis = new FileInputStream(arquivo);
 		ObjectInputStream ois = new ObjectInputStream(fis); 
 		Funcionario funcDeserializado = (Funcionario) ois.readObject();;

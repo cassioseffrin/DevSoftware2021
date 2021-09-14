@@ -10,23 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import br.edu.cassio.utils.EntidadeGenerica;
+import utils.EntidadeGenerica;
 
-public class Cliente extends Pessoa implements Serializable {
+public class Cliente extends Pessoa implements Serializable { 
 
+ 
 	private static final long serialVersionUID = 1L;
-
-	public static final String ARQUIVO = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Cliente.csv";
-	public static final String ARQUIVO_SERIAL = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Cliente.obj";
+	
+	public static final String ARQUIVO = "C:\\dev\\DevSoftware2021\\Farmacia\\database\\Cliente.csv";
+	public static final String ARQUIVO_SERIAL = "C:\\dev\\DevSoftware2021\\Farmacia\\database\\Cliente.obj";
 
 	private String telefone;
-
+	
+	
 	public Cliente() {
 	}
-
+	
+	
 	public Cliente(String nome, String cpf, String rg, String endereco, String telefone) {
-		super(nome, cpf, rg, endereco);
-		this.telefone = telefone;
+		super(nome, cpf, rg,endereco);
+		this.telefone=telefone;
 	}
 
 	public void setTelefone(String f) {
@@ -41,7 +44,7 @@ public class Cliente extends Pessoa implements Serializable {
 		File f = new File(this.ARQUIVO);
 		try {
 			FileOutputStream fos = new FileOutputStream(f, true);
-
+ 
 			fos.write(this.toString().getBytes());
 			System.out.println("O Objeto cliente foi salvo!");
 			fos.close();
@@ -52,7 +55,7 @@ public class Cliente extends Pessoa implements Serializable {
 		}
 
 	}
-
+	
 	public static List<Cliente> lerTodos() {
 		File f = new File(ARQUIVO);
 		FileInputStream fis;
@@ -60,11 +63,11 @@ public class Cliente extends Pessoa implements Serializable {
 		try {
 			fis = new FileInputStream(f);
 			Scanner scan = new Scanner(fis);
-			while (scan.hasNext()) {
+			while(scan.hasNext()) {
 				String linha = scan.nextLine();
 				String arr[] = linha.split(";");
-				Cliente cliente = new Cliente(arr[0], arr[1], arr[2], arr[3], arr[4]);
-				lstClientes.add(cliente);
+				Cliente cliente = new Cliente(arr[0],arr[1],arr[2],arr[3],arr[4]);
+				lstClientes.add(cliente);	
 			}
 			scan.close();
 			fis.close();
@@ -76,14 +79,14 @@ public class Cliente extends Pessoa implements Serializable {
 		return lstClientes;
 	}
 
-	public String imprimir() {
-		return super.toString() + ";" + this.telefone + "\n";
-	}
-
 	@Override
 	public String toString() {
-		return String.format("Nome %s\nCPF: %s\nRG: %s\nFone: %s\nEndereco: %s\n ********************\n", getNome(),
-				getCpf(), getRg(), getTelefone(), getEndereco());
+		return super.toString() + ";" + this.telefone + "\n";
+	}
+	
+	public String imprimir() {
+		return String.format("Nome %s\nCPF: %s\nRG: %s\nFone: %s\nEndereco: %s\n ********************\n", 
+				getNome(), getCpf(), getRg(), getTelefone(), getEndereco()) ;
 	}
 
 }
