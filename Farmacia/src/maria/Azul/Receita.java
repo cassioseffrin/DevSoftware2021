@@ -1,6 +1,6 @@
 package maria.Azul;
 
- 
+import maria.Cadastros.*;
 
 public class Receita {
 

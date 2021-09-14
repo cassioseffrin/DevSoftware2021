@@ -1,4 +1,4 @@
-package Cadastros;
+package maria.Cadastros;
 import java.util.List;
 
 public class Principal {
