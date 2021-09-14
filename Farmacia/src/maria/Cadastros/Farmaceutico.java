@@ -1,4 +1,4 @@
-package Cadastros;
+package maria.Cadastros;
 
 public class Farmaceutico extends Funcionario{
 

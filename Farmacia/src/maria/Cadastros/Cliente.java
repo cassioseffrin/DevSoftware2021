@@ -1,4 +1,4 @@
-package Cadastros;
+package maria.Cadastros;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
