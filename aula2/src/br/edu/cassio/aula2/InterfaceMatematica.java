@@ -15,6 +15,6 @@ public interface InterfaceMatematica {
 	
 	public float dividir(float n1, float n2);
 	
-	public double raiz(float n);
+	public double raiz(float n); //fdsfdsgd
 
 }
