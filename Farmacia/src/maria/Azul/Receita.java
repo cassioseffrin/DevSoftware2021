@@ -1,6 +1,6 @@
-package Azul;
+package maria.Azul;
 
-import Cadastros.Pessoa;
+ 
 
 public class Receita {
 

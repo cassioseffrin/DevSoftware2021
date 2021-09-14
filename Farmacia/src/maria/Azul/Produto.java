@@ -1,4 +1,4 @@
-package Azul;
+package maria.Azul;
 
 import java.util.Date;
 
