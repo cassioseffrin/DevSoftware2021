@@ -1,4 +1,4 @@
-package Azul;
+package maria.Azul;
 
 public class CategoriaProduto {
 
