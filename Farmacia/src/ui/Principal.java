@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.edu.cassio.Cliente;
+import br.edu.cassio.Funcionario;
+import utils.EntidadeGenerica;
 
 public class Principal {
 
@@ -27,7 +29,7 @@ public class Principal {
 		System.out.println("3. RELATORIOS");
 		System.out.println("4. AJUDA");
 		System.out.println("5. SAIR\n\n\n");
-		System.out.printf("Digite uma das opÃ§Ãµes acima: ");
+		System.out.printf("Digite uma das opções acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		irTela(op);
@@ -49,19 +51,19 @@ public class Principal {
 		System.out.println("3. FARMACEUTICO ");
 		System.out.println("4. PRODUTOS");
 		System.out.println("5. VOLTAR\n\n\n");
-		System.out.printf("Digite uma das opÃ§Ãµes acima: ");
+		System.out.printf("Digite uma das opções acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		if (op == 5) {
 			montaTelaPrincipal();
 		} else if (op == 1) {
 			cadastroCliente();
+		} else if (op == 2) {
+			cadastroFuncionario();
 		}
 	}
 
 	private static void irMenuRelatorio() {
-		
-	
 
 		System.out.println("\f RELATORIOS\n\n\n");
 		System.out.println("1. CLIENTE");
@@ -69,58 +71,51 @@ public class Principal {
 		System.out.println("3. FARMACEUTICO ");
 		System.out.println("4. PRODUTOS");
 		System.out.println("5. VOLTAR\n\n\n");
-		System.out.printf("Digite uma das opÃ§Ãµes acima: ");
+		System.out.printf("Digite uma das opções acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		if (op == 1) {
 			relatorioCliente();
+		} else if (op == 2) {
+			relatorioFuncionario();
 		}
 	}
 
 	private static void relatorioCliente() {
 		System.out.println("IMPRIMINDO CLIENTE \n\n\n");
-		List<Cliente> lst = lerLista();
-		if (lst != null) {
-			
-			for (Cliente c: lst) {
-				System.out.println(c.imprimir());
-			}
-			
-		}
-		
+
+		EntidadeGenerica e = new EntidadeGenerica();
+		e.imprimirLista(Cliente.ARQUIVO_SERIAL);
 		System.out.println("\n\n Digite uma op 1 : Menu - 2 : Relatorios");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		if (op == 1) {
 			montaTelaPrincipal();
-		}else	if (op == 2) {
+		} else if (op == 2) {
 			irMenuRelatorio();
 		}
 	}
-	
-	
-	private static List<Cliente> lerLista(){
-		try {
-			File arquivo = new File(Cliente.ARQUIVO_SERIAL);
-			FileInputStream fis = new FileInputStream(arquivo);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			List<Cliente> lst = (List<Cliente>) ois.readObject();
-			return lst;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+
+	private static void relatorioFuncionario() {
+		System.out.println("IMPRIMINDO Funcionario \n\n\n");
+
+		EntidadeGenerica e = new EntidadeGenerica();
+		e.imprimirLista(Funcionario.ARQUIVO_SERIAL);
+		System.out.println("\n\n Digite uma op 1 : Menu - 2 : Relatorios");
+		Scanner f = new Scanner(System.in);
+		Integer op = f.nextInt();
+		if (op == 1) {
+			montaTelaPrincipal();
+		} else if (op == 2) {
+			irMenuRelatorio();
 		}
-		return null;
 	}
 
 	private static void cadastroCliente() {
 		Scanner s = new Scanner(System.in);
 		Cliente c = new Cliente();
 		System.out.println("CADASTRANDO CLIENTE \n\n\n");
-		
+
 		System.out.println("Nome: ");
 		c.setNome(s.nextLine());
 		System.out.println("CPF");
@@ -131,33 +126,53 @@ public class Principal {
 		c.setTelefone(s.nextLine());
 		System.out.println("Endereco");
 		c.setEndereco(s.nextLine());
-		
-		
-		List<Cliente> lst = lerLista();
-		lst.add(c);
 
-		try {
-			File arquivo = new File(Cliente.ARQUIVO_SERIAL);
-			FileOutputStream fos = new FileOutputStream(arquivo);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(lst);
-			System.out.printf("O cliente foi salvo!!!");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		EntidadeGenerica e = new EntidadeGenerica();
+		e.salvarEntidade(c, Cliente.ARQUIVO_SERIAL);
 
-
-		
 		try {
 			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		} catch (InterruptedException e2) {
+			e2.printStackTrace();
 		}
-		
+
 		montaTelaPrincipal();
- 
+
+	}
+	
+	private static void cadastroFuncionario() {
+		Scanner l = new Scanner(System.in);
+		Funcionario f = new Funcionario();
+		System.out.println("CADASTRANDO Funcionario \n\n\n");
+
+		System.out.println("Funcionario: ");
+		f.setNome(l.nextLine());
+		System.out.println("CPF");
+		f.setCpf(l.nextLine());
+		System.out.println("RG");
+		f.setRg(l.nextLine());
+		System.out.println("Endereco");
+		f.setEndereco(l.nextLine());
+		System.out.println("pis");
+		f.setPis(l.nextLine());
+		System.out.println("pasep");
+		f.setPasep(l.nextLine());
+		System.out.println("carteiraTrabalho");
+		f.setCarteiraTrabalho(l.nextLine());
+		System.out.println("salario");
+		f.setSalario(l.nextDouble());
+
+		EntidadeGenerica e = new EntidadeGenerica();
+		e.salvarEntidade(f, Funcionario.ARQUIVO_SERIAL);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e2) {
+			e2.printStackTrace();
+		}
+
+		montaTelaPrincipal();
+
 	}
 
 }

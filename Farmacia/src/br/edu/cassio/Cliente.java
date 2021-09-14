@@ -10,13 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import utils.EntidadeGenerica;
+
 public class Cliente extends Pessoa implements Serializable { 
 
  
 	private static final long serialVersionUID = 1L;
 	
-	public static final String ARQUIVO = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Cliente.csv";
-	public static final String ARQUIVO_SERIAL = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Cliente.obj";
+	public static final String ARQUIVO = "C:\\dev\\DevSoftware2021\\Farmacia\\database\\Cliente.csv";
+	public static final String ARQUIVO_SERIAL = "C:\\dev\\DevSoftware2021\\Farmacia\\database\\Cliente.obj";
 
 	private String telefone;
 	

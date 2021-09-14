@@ -14,8 +14,8 @@ public class Funcionario extends Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String ARQUIVO = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Funcionario.csv";
-	public static final String ARQUIVO_SERIALIZACAO = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia/database/Funcionario.obj";
+	public static final String ARQUIVO = "\\C:\\dev\\DevSoftware2021\\Farmacia\\database\\Funcionario.csv";
+	public static final String ARQUIVO_SERIAL = "\\C:\\dev\\DevSoftware2021\\Farmacia\\database\\Funcionario.obj";
 
 	private String pis;
 	private String pasep;
@@ -23,6 +23,15 @@ public class Funcionario extends Pessoa implements Serializable {
 	private Double salario;
 
 	public Funcionario() {
+	};
+	
+	
+	public Funcionario(String nome, String cpf, String rg, String endereco, String pis, String pasep, String carteiraTrabalho, Double salario) {
+		super(nome, cpf, rg, endereco);
+		this.pis=pis;
+		this.pasep=pasep;
+		this.carteiraTrabalho=carteiraTrabalho;	 
+		this.salario=salario;
 	}
 
 	public Funcionario(String a[]) { 
