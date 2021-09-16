@@ -18,7 +18,7 @@ public class EscritaSerializacao {
 		f.setSalario(24234.45);
 		f.setCarteiraTrabalho("FA2234");
 
-		File arquivo = new File(Funcionario.ARQUIVO_SERIALIZACAO);
+		File arquivo = new File(Funcionario.ARQUIVO_SERIAL);
 		FileOutputStream fos = new FileOutputStream(arquivo);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(f);
