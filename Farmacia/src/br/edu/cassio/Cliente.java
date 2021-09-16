@@ -10,9 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import br.edu.cassio.utils.EntidadeGenerica;
-
-public class Cliente extends Pessoa implements Serializable {
+public class Cliente extends Pessoa implements Serializable, Comparable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -85,5 +83,14 @@ public class Cliente extends Pessoa implements Serializable {
 		return String.format("Nome %s\nCPF: %s\nRG: %s\nFone: %s\nEndereco: %s\n ********************\n", getNome(),
 				getCpf(), getRg(), getTelefone(), getEndereco());
 	}
+
+	@Override
+	public int compareTo(Object o) {
+		Cliente e = (Cliente) o;
+	
+		return this.getNome().compareTo(e.getNome());
+	
+	}
+ 
 
 }

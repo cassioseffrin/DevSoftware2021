@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -23,6 +24,7 @@ public class EntidadeGenerica implements InterfaceSerializacaoGenerica {
 	}
 
 	@Override
+//	public <E extends Comparable<E>> List<E> lerLista(String strArquivo) {
 	public <E> List<E> lerLista(String strArquivo) {
 		try {
 			File arquivo = new File(strArquivo);
@@ -79,6 +81,10 @@ public class EntidadeGenerica implements InterfaceSerializacaoGenerica {
 	
 	public <E> void imprimirLista(  String strArquivo) {
 		List<E> lista = lerLista(strArquivo);
+		
+		
+ 
+		
 		for (E obj : lista) {
 			System.out.println(obj);
 		}
