@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Scanner;
 
  
-public class Cliente extends Pessoa implements Serializable, Comparable {
+public class Cliente extends Pessoa implements Serializable, Comparable<Object> {
  
  
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 	
 	public static final String ARQUIVO = "C:\\dev\\DevSoftware2021\\Farmacia\\database\\Cliente.csv";
 	public static final String ARQUIVO_SERIAL = "C:\\dev\\DevSoftware2021\\Farmacia\\database\\Cliente.obj";
@@ -90,10 +90,8 @@ public class Cliente extends Pessoa implements Serializable, Comparable {
 
 	@Override
 	public int compareTo(Object o) {
-		Cliente e = (Cliente) o;
-	
-		return this.getNome().compareTo(e.getNome());
-	
+		Cliente cli = (Cliente) o;
+		return this.getNome().toLowerCase().compareTo(cli.getNome().toLowerCase());
 	}
  
 

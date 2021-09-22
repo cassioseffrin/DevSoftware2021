@@ -11,21 +11,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 import br.edu.cassio.interfaces.InterfaceSerializacaoGenerica;
 
 public class EntidadeGenerica implements InterfaceSerializacaoGenerica {
 
 	@Override
-	public  <E> boolean salvarEntidade(E elemento, String strArquivo) {
-		List<E> lstGenerica = lerLista(strArquivo);
+	public <E> boolean salvarEntidade(E elemento, String strArquivo) {
+		List<E> lstGenerica = (List<E>) lerLista(strArquivo);
 		lstGenerica.add(elemento);
 		return salvarLista(lstGenerica, strArquivo);
 	}
 
 	@Override
-//	public <E extends Comparable<E>> List<E> lerLista(String strArquivo) {
-	public <E> List<E> lerLista(String strArquivo) {
+	public <E extends Comparable<E>> List<E> lerLista(String strArquivo) {
 		try {
 			File arquivo = new File(strArquivo);
 			FileInputStream fis = new FileInputStream(arquivo);
@@ -51,7 +49,7 @@ public class EntidadeGenerica implements InterfaceSerializacaoGenerica {
 			List<E> lst = new ArrayList<E>();
 			oos.writeObject(lst);
 			System.out.printf("lista vazia persistida");
-			return lerLista(strArquivo);
+			return (List<E>) lerLista(strArquivo);
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
@@ -77,18 +75,14 @@ public class EntidadeGenerica implements InterfaceSerializacaoGenerica {
 			return false;
 		}
 	}
-	
-	
-	public <E> void imprimirLista(  String strArquivo) {
-		List<E> lista = lerLista(strArquivo);
-		
-		
- 
-		
+
+	public <E> void imprimirLista(String strArquivo) {
+		List<E> lista = (List<E>) lerLista(strArquivo);
+		lista.sort(null);
 		for (E obj : lista) {
 			System.out.println(obj);
 		}
-		
+
 	}
 
 }

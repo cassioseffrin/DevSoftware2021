@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Produto implements Serializable{
+public class Produto implements Serializable,Comparable<Object>{
 	/**
 	 * 
 	 */
 	public static Generico generico = new Generico();
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 	private String codBarra;
 	private String lote;
 	private Date dataFabricacao;
@@ -113,8 +113,13 @@ public class Produto implements Serializable{
 	/* Overrides */
 	@Override
 	public String toString() {
-		return "Cód. Barra: "+this.codBarra+" Lote: "+this.lote+" Fab.: "+this.dataFabricacao.toString()
+		return "Cï¿½d. Barra: "+this.codBarra+" Lote: "+this.lote+" Fab.: "+this.dataFabricacao.toString()
 			+" Validade: "+this.dataValidade.toString()+" Valor: "+this.valor
-			+" Idade Mínima: "+this.idadeMinima+ " idade Máxima: "+this.idadeMaxima;
+			+" Idade Mï¿½nima: "+this.idadeMinima+ " idade Mï¿½xima: "+this.idadeMaxima;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		return 0;
 	}
 }

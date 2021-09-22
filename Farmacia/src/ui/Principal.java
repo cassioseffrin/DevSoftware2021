@@ -1,19 +1,12 @@
 package ui;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.List;
+ 
 import java.util.Scanner;
 
 import br.edu.cassio.Cliente;
 import br.edu.cassio.Funcionario;
-import utils.EntidadeGenerica;
+import br.edu.cassio.utils.EntidadeGenerica;
+ 
 
 public class Principal {
 
@@ -29,7 +22,7 @@ public class Principal {
 		System.out.println("3. RELATORIOS");
 		System.out.println("4. AJUDA");
 		System.out.println("5. SAIR\n\n\n");
-		System.out.printf("Digite uma das opções acima: ");
+		System.out.printf("Digite uma das opï¿½ï¿½es acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		irTela(op);
@@ -51,7 +44,7 @@ public class Principal {
 		System.out.println("3. FARMACEUTICO ");
 		System.out.println("4. PRODUTOS");
 		System.out.println("5. VOLTAR\n\n\n");
-		System.out.printf("Digite uma das opções acima: ");
+		System.out.printf("Digite uma das opï¿½ï¿½es acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		if (op == 5) {
@@ -71,7 +64,7 @@ public class Principal {
 		System.out.println("3. FARMACEUTICO ");
 		System.out.println("4. PRODUTOS");
 		System.out.println("5. VOLTAR\n\n\n");
-		System.out.printf("Digite uma das opções acima: ");
+		System.out.printf("Digite uma das opï¿½ï¿½es acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		if (op == 1) {
@@ -101,6 +94,9 @@ public class Principal {
 
 		EntidadeGenerica e = new EntidadeGenerica();
 		e.imprimirLista(Funcionario.ARQUIVO_SERIAL);
+		
+		
+		
 		System.out.println("\n\n Digite uma op 1 : Menu - 2 : Relatorios");
 		Scanner f = new Scanner(System.in);
 		Integer op = f.nextInt();
