@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import br.edu.cassio.models.Funcionario;
+
 public class LeituraObjectSerializado {
 	public static void main(String a[]) throws IOException, ClassNotFoundException {
 		File arquivo = new File(Funcionario.ARQUIVO_SERIAL);

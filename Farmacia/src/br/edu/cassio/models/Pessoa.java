@@ -1,6 +1,8 @@
-package br.edu.cassio;
+package br.edu.cassio.models;
 
 import java.io.Serializable;
+
+import br.edu.cassio.Persistencia;
 
 public class Pessoa  extends Persistencia implements Serializable{
 	

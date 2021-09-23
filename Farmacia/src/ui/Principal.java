@@ -3,8 +3,8 @@ package ui;
  
 import java.util.Scanner;
 
-import br.edu.cassio.Cliente;
-import br.edu.cassio.Funcionario;
+import br.edu.cassio.models.Cliente;
+import br.edu.cassio.models.Funcionario;
 import br.edu.cassio.utils.EntidadeGenerica;
  
 

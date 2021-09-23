@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+import br.edu.cassio.models.Funcionario;
+
 public class Principal {
 	public static void main(String a[]) {
 //		List<Cliente> lstClientes = Cliente.lerTodos();

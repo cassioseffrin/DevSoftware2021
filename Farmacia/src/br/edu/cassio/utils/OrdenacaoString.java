@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import br.edu.cassio.Cliente;
+import br.edu.cassio.models.Cliente;
 
  
  

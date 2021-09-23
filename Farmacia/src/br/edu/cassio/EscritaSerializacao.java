@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+import br.edu.cassio.models.Funcionario;
+
 public class EscritaSerializacao {
 	public static void main(String a[]) throws IOException {
 

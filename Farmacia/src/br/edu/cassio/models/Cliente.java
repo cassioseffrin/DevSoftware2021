@@ -1,4 +1,4 @@
-package br.edu.cassio;
+package br.edu.cassio.models;
 
 import java.io.File;
 import java.io.FileInputStream;
