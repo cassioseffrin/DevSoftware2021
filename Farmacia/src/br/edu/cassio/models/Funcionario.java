@@ -14,8 +14,8 @@ public class Funcionario extends Pessoa implements Serializable,Comparable<Objec
 
 	private static final long serialVersionUID = 2L;
 
-	public static final String ARQUIVO = "\\C:\\dev\\DevSoftware2021\\Farmacia\\database\\Funcionario.csv";
-	public static final String ARQUIVO_SERIAL = "\\C:\\dev\\DevSoftware2021\\Farmacia\\database\\Funcionario.obj";
+	public static final String ARQUIVO = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia\\database\\Funcionario.csv";
+	public static final String ARQUIVO_SERIAL = "/Users/cassioseffrin/dev/DevSoftware2021/Farmacia\\database\\Funcionario.obj";
 
 	private String pis;
 	private String pasep;
