@@ -1,8 +1,10 @@
 package ui;
 
  
+import java.util.List;
 import java.util.Scanner;
 
+import br.edu.cassio.dao.ClienteDao;
 import br.edu.cassio.models.Cliente;
 import br.edu.cassio.models.Funcionario;
 import br.edu.cassio.utils.EntidadeGenerica;
@@ -75,18 +77,23 @@ public class Principal {
 	}
 
 	private static void relatorioCliente() {
-		System.out.println("IMPRIMINDO CLIENTE \n\n\n");
+		System.out.println("LISTAGEM CLIENTES \n\n\n");
 
-		EntidadeGenerica e = new EntidadeGenerica();
-		e.imprimirLista(Cliente.ARQUIVO_SERIAL);
-		System.out.println("\n\n Digite uma op 1 : Menu - 2 : Relatorios");
-		Scanner s = new Scanner(System.in);
-		Integer op = s.nextInt();
-		if (op == 1) {
-			montaTelaPrincipal();
-		} else if (op == 2) {
-			irMenuRelatorio();
+		ClienteDao clienteDao = new ClienteDao();
+		List<Cliente> lst = clienteDao.listar();
+		
+		for(Cliente c : lst) {
+			System.out.println(c);
 		}
+		
+		
+//		Scanner s = new Scanner(System.in);
+//		Integer op = s.nextInt();
+//		if (op == 1) {
+//			montaTelaPrincipal();
+//		} else if (op == 2) {
+//			irMenuRelatorio();
+//		}
 	}
 
 	private static void relatorioFuncionario() {
@@ -123,8 +130,11 @@ public class Principal {
 		System.out.println("Endereco");
 		c.setEndereco(s.nextLine());
 
-		EntidadeGenerica e = new EntidadeGenerica();
-		e.salvarEntidade(c, Cliente.ARQUIVO_SERIAL);
+//		EntidadeGenerica e = new EntidadeGenerica();
+//		e.salvarEntidade(c, Cliente.ARQUIVO_SERIAL);
+		
+		ClienteDao clienteDao = new ClienteDao();
+		clienteDao.inserir(c);
 
 		try {
 			Thread.sleep(2000);
