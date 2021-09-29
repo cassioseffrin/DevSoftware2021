@@ -1,6 +1,5 @@
 package ui;
 
- 
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,9 +7,10 @@ import br.edu.cassio.dao.ClienteDao;
 import br.edu.cassio.models.Cliente;
 import br.edu.cassio.models.Funcionario;
 import br.edu.cassio.utils.EntidadeGenerica;
- 
 
 public class Principal {
+
+	private static ClienteDao clienteDao = new ClienteDao();
 
 	public static void main(String array[]) {
 		montaTelaPrincipal();
@@ -24,7 +24,7 @@ public class Principal {
 		System.out.println("3. RELATORIOS");
 		System.out.println("4. AJUDA");
 		System.out.println("5. SAIR\n\n\n");
-		System.out.printf("Digite uma das op��es acima: ");
+		System.out.printf("Digite uma das opçção acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		irTela(op);
@@ -46,16 +46,67 @@ public class Principal {
 		System.out.println("3. FARMACEUTICO ");
 		System.out.println("4. PRODUTOS");
 		System.out.println("5. VOLTAR\n\n\n");
-		System.out.printf("Digite uma das op��es acima: ");
+		System.out.printf("Digite uma das opçção acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		if (op == 5) {
 			montaTelaPrincipal();
 		} else if (op == 1) {
-			cadastroCliente();
+			menuCliente();
 		} else if (op == 2) {
 			cadastroFuncionario();
 		}
+	}
+
+	private static void menuCliente() {
+		System.out.println("\f CLIENTE\n\n\n");
+		System.out.println("1. INSERIR");
+		System.out.println("2. ALTERAR");
+		System.out.println("3. VOLTAR");
+		System.out.printf("Digite uma das opções acima: ");
+		Scanner s = new Scanner(System.in);
+		Integer op = s.nextInt();
+		if (op == 1) {
+			cadastroCliente();
+		} else if (op == 2) {
+
+			alterarCliente();
+
+		} else if (op == 3) {
+			irMenuCadastro();
+		}
+	}
+
+	private static void alterarCliente() {
+		System.out.println("ALTERAÇAO DE CLIENTE \n\n\n");
+		System.out.println("DIGITE O ID DO CLIENTE: \n");
+		Scanner scanner = new Scanner(System.in);
+		int id = scanner.nextInt();
+		Cliente c = clienteDao.buscar(id);
+		System.out.println("O cliente a ser alterado é: \n" + c);
+		System.out.println("Nome: ");
+		c.setNome(scanner.next());
+		
+		System.out.println("CPF");
+		c.setCpf(scanner.nextLine());
+		System.out.println("RG");
+		c.setRg(scanner.nextLine());
+		System.out.println("Telefone");
+		c.setTelefone(scanner.nextLine());
+		System.out.println("Endereco");
+		c.setEndereco(scanner.nextLine());
+
+ 
+		clienteDao.alterar(c);
+
+		try {
+			Thread.sleep(2000);
+			montaTelaPrincipal();
+		} catch (InterruptedException e2) {
+			e2.printStackTrace();
+		}
+
+
 	}
 
 	private static void irMenuRelatorio() {
@@ -66,7 +117,7 @@ public class Principal {
 		System.out.println("3. FARMACEUTICO ");
 		System.out.println("4. PRODUTOS");
 		System.out.println("5. VOLTAR\n\n\n");
-		System.out.printf("Digite uma das op��es acima: ");
+		System.out.printf("Digite uma das opçção acima: ");
 		Scanner s = new Scanner(System.in);
 		Integer op = s.nextInt();
 		if (op == 1) {
@@ -78,22 +129,10 @@ public class Principal {
 
 	private static void relatorioCliente() {
 		System.out.println("LISTAGEM CLIENTES \n\n\n");
-
-		ClienteDao clienteDao = new ClienteDao();
 		List<Cliente> lst = clienteDao.listar();
-		
-		for(Cliente c : lst) {
+		for (Cliente c : lst) {
 			System.out.println(c);
 		}
-		
-		
-//		Scanner s = new Scanner(System.in);
-//		Integer op = s.nextInt();
-//		if (op == 1) {
-//			montaTelaPrincipal();
-//		} else if (op == 2) {
-//			irMenuRelatorio();
-//		}
 	}
 
 	private static void relatorioFuncionario() {
@@ -101,9 +140,7 @@ public class Principal {
 
 		EntidadeGenerica e = new EntidadeGenerica();
 		e.imprimirLista(Funcionario.ARQUIVO_SERIAL);
-		
-		
-		
+
 		System.out.println("\n\n Digite uma op 1 : Menu - 2 : Relatorios");
 		Scanner f = new Scanner(System.in);
 		Integer op = f.nextInt();
@@ -130,10 +167,6 @@ public class Principal {
 		System.out.println("Endereco");
 		c.setEndereco(s.nextLine());
 
-//		EntidadeGenerica e = new EntidadeGenerica();
-//		e.salvarEntidade(c, Cliente.ARQUIVO_SERIAL);
-		
-		ClienteDao clienteDao = new ClienteDao();
 		clienteDao.inserir(c);
 
 		try {
@@ -145,7 +178,7 @@ public class Principal {
 		montaTelaPrincipal();
 
 	}
-	
+
 	private static void cadastroFuncionario() {
 		Scanner l = new Scanner(System.in);
 		Funcionario f = new Funcionario();

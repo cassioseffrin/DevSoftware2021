@@ -9,6 +9,8 @@ public class Pessoa  extends Persistencia implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	
+	private Integer id;
 	private String nome;
 	private String cpf;
 	private String rg;
@@ -21,6 +23,16 @@ public class Pessoa  extends Persistencia implements Serializable{
 		this.cpf = cpf;
 		this.rg = rg;
 		this.endereco = endereco;
+	}
+	
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNome() {
