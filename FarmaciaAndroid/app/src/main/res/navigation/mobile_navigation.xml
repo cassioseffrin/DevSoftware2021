@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="uncfarmacia.trabalhocassio.group3.farmaciadrawer.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <activity
+        android:id="@+id/nav_customer"
+        android:name="uncfarmacia.trabalhocassio.group3.farmaciadrawer.ui.customer.CustomerActivity"
+        android:label="@string/menu_customer"
+        tools:layout="@layout/activity_customer" />
+
+    <activity
+        android:id="@+id/nav_employe"
+        android:name="uncfarmacia.trabalhocassio.group3.farmaciadrawer.ui.employe.EmployeActivity"
+        android:label="@string/menu_employe"
+        tools:layout="@layout/activity_employe" />
+
+    <fragment
+        android:id="@+id/nav_product"
+        android:name="uncfarmacia.trabalhocassio.group3.farmaciadrawer.ui.product.ProdutoFragment"
+        android:label="@string/menu_product"
+        tools:layout="@layout/fragment_item_list" />
+
+    <activity
+        android:id="@+id/nav_order"
+        android:name="uncfarmacia.trabalhocassio.group3.farmaciadrawer.ui.order.OrderActivity"
+        android:label="@string/menu_order"
+        tools:layout="@layout/activity_order" />
+
+</navigation>
